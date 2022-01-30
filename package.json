@@ -2,5 +2,26 @@
   "dependencies": {
     "saxon-js": "^2.3.0",
     "xslt3": "^2.3.0"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "numtoword",
+  "version": "1.0.0",
+  "description": "numtoword",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikhailShakhanov/numtoword.git"
+  },
+  "keywords": [
+    "numtoword"
+  ],
+  "author": "mshakhanov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MikhailShakhanov/numtoword/issues"
+  },
+  "homepage": "https://github.com/MikhailShakhanov/numtoword#readme"
 }
