@@ -1,0 +1,220 @@
+
+node:internal/process/promises:246
+          triggerUncaughtException(err, true /* fromPromise */);
+          ^
+Error
+    at new K (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3887:513)
+    at g (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3940:372)
+    at f (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3941:199)
+    at Object.fromString (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3949:199)
+    at Object.K (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3949:478)
+    at B (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4087:34)
+    at Object.gh (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4087:392)
+    at Array.<anonymous> (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4408:446)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4154:501
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:33
+    at Array.forEach (<anonymous>)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:6
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4164:69
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4164:69
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:33
+    at Array.forEach (<anonymous>)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:6
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4164:69
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:33
+    at Array.forEach (<anonymous>)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:6
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:33
+    at Array.forEach (<anonymous>)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:6
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4154:324
+    at Object.push (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4167:370)
+    at e.uf (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4745:502)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4743:284
+    at wc.ba.forEachItem (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3985:583)
+    at e.Ib (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4743:251)
+    at e (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4758:179)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4784:306
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  message: 'Supplied value "123657.56444"" is not a valid xs:double',
+  name: 'XError',
+  code: 'FORG0001',
+  xsltLineNr: '388',
+  xsltModule: 'amountTranslate.sef'
+}
+
+node:internal/process/promises:246
+          triggerUncaughtException(err, true /* fromPromise */);
+          ^
+Error
+    at new K (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3887:513)
+    at g (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3940:372)
+    at f (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3941:199)
+    at Object.fromString (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3949:199)
+    at Object.K (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3949:478)
+    at B (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4087:34)
+    at Object.gh (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4087:392)
+    at Array.<anonymous> (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4408:446)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4154:501
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:33
+    at Array.forEach (<anonymous>)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:6
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4164:69
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4164:69
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:33
+    at Array.forEach (<anonymous>)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:6
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4164:69
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:33
+    at Array.forEach (<anonymous>)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:6
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:33
+    at Array.forEach (<anonymous>)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:6
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4154:324
+    at Object.push (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4167:370)
+    at e.uf (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4745:502)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4743:284
+    at wc.ba.forEachItem (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3985:583)
+    at e.Ib (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4743:251)
+    at e (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4758:179)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4784:306
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  message: 'Supplied value "123657.56444"" is not a valid xs:double',
+  name: 'XError',
+  code: 'FORG0001',
+  xsltLineNr: '388',
+  xsltModule: 'amountTranslate.sef'
+}
+
+node:internal/process/promises:246
+          triggerUncaughtException(err, true /* fromPromise */);
+          ^
+Error
+    at new K (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3887:513)
+    at g (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3940:372)
+    at f (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3941:199)
+    at Object.fromString (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3949:199)
+    at Object.K (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3949:478)
+    at B (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4087:34)
+    at Object.gh (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4087:392)
+    at Array.<anonymous> (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4408:446)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4154:501
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:33
+    at Array.forEach (<anonymous>)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:6
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4164:69
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4164:69
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:33
+    at Array.forEach (<anonymous>)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:6
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4164:69
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:33
+    at Array.forEach (<anonymous>)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:6
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:33
+    at Array.forEach (<anonymous>)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:6
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4154:324
+    at Object.push (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4167:370)
+    at e.uf (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4745:502)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4743:284
+    at wc.ba.forEachItem (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3985:583)
+    at e.Ib (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4743:251)
+    at e (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4758:179)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4784:306
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  message: 'Supplied value "123657.56444"" is not a valid xs:double',
+  name: 'XError',
+  code: 'FORG0001',
+  xsltLineNr: '388',
+  xsltModule: 'amountTranslate.sef'
+}
+
+node:internal/process/promises:246
+          triggerUncaughtException(err, true /* fromPromise */);
+          ^
+Error
+    at new K (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3887:513)
+    at g (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3940:372)
+    at f (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3941:199)
+    at Object.fromString (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3949:199)
+    at Object.K (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3949:478)
+    at B (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4087:34)
+    at Object.gh (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4087:392)
+    at Array.<anonymous> (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4408:446)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4154:501
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:33
+    at Array.forEach (<anonymous>)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:6
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4164:69
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4164:69
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:33
+    at Array.forEach (<anonymous>)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:6
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4164:69
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:33
+    at Array.forEach (<anonymous>)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:6
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:33
+    at Array.forEach (<anonymous>)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:6
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4154:324
+    at Object.push (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4167:370)
+    at e.uf (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4745:502)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4743:284
+    at wc.ba.forEachItem (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3985:583)
+    at e.Ib (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4743:251)
+    at e (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4758:179)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4784:306
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  message: 'Supplied value "123657.56444"" is not a valid xs:double',
+  name: 'XError',
+  code: 'FORG0001',
+  xsltLineNr: '388',
+  xsltModule: 'amountTranslate.sef'
+}
+
+node:internal/process/promises:246
+          triggerUncaughtException(err, true /* fromPromise */);
+          ^
+Error
+    at new K (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3887:513)
+    at g (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3940:372)
+    at f (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3941:199)
+    at Object.fromString (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3949:199)
+    at Object.K (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3949:478)
+    at B (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4087:34)
+    at Object.gh (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4087:392)
+    at Array.<anonymous> (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4408:446)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4154:501
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:33
+    at Array.forEach (<anonymous>)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:6
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4164:69
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4164:69
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:33
+    at Array.forEach (<anonymous>)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:6
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4164:69
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:33
+    at Array.forEach (<anonymous>)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:6
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:33
+    at Array.forEach (<anonymous>)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4136:6
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4154:324
+    at Object.push (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4167:370)
+    at e.uf (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4745:502)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4743:284
+    at wc.ba.forEachItem (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:3985:583)
+    at e.Ib (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4743:251)
+    at e (C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4758:179)
+    at C:\Edu\NodeJS\projects\numtoword\node_modules\saxon-js\SaxonJS2N.js:4784:306
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  message: 'Supplied value "123657.56444"" is not a valid xs:double',
+  name: 'XError',
+  code: 'FORG0001',
+  xsltLineNr: '388',
+  xsltModule: 'amountTranslate.sef'
+}
