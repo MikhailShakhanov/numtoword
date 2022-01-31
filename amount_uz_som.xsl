@@ -61,18 +61,18 @@
 				</xsl:call-template>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:value-of select="'ноль '"/>
+				<xsl:value-of select="'nol '"/>
 			</xsl:otherwise>
 		</xsl:choose>
 		<xsl:choose>
 			<xsl:when test="$fractpart mod 10=1">
-				<xsl:value-of select="'тыйын '"/>
+				<xsl:value-of select="'tiyin '"/>
 			</xsl:when>
 			<xsl:when test="$fractpart mod 10=2 or $fractpart mod 10=3 or $fractpart mod 10=4">
-				<xsl:value-of select="'тыйын '"/>
+				<xsl:value-of select="'tiyin '"/>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:value-of select="'тыйын '"/>
+				<xsl:value-of select="'tiyin '"/>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
@@ -163,19 +163,19 @@
 					<xsl:otherwise>
 						<xsl:choose>
 							<xsl:when test="$power=1">
-								<xsl:value-of select="concat('жүз',$ret)"/>
+								<xsl:value-of select="concat('ming',$ret)"/>
 								<!--тысяч-->
 							</xsl:when>
 							<xsl:when test="$power=2">
-								<xsl:value-of select="concat('миллион',$ret)"/>
+								<xsl:value-of select="concat('million',$ret)"/>
 								<!--миллион-->
 							</xsl:when>
 							<xsl:when test="$power=3">
-								<xsl:value-of select="concat('миллиард',$ret)"/>
+								<xsl:value-of select="concat('milliard',$ret)"/>
 								<!--миллиард-->
 							</xsl:when>
 							<xsl:when test="$power=4">
-								<xsl:value-of select="concat('триллион',$ret)"/>
+								<xsl:value-of select="concat('trillion',$ret)"/>
 								<!--триллион-->
 							</xsl:when>
 						</xsl:choose>
@@ -231,31 +231,31 @@
 		<xsl:variable name="ret">
 			<xsl:choose>
 				<xsl:when test="$remainder=1">
-					<xsl:value-of select="'бир жүз '"/>
+					<xsl:value-of select="'bir yuz '"/>
 				</xsl:when>
 				<xsl:when test="$remainder=2">
-					<xsl:value-of select="'эки жүз '"/>
+					<xsl:value-of select="'ikki yuz '"/>
 				</xsl:when>
 				<xsl:when test="$remainder=3">
-					<xsl:value-of select="'үч жүз '"/>
+					<xsl:value-of select="'uch yuz '"/>
 				</xsl:when>
 				<xsl:when test="$remainder=4">
-					<xsl:value-of select="'төрт жүз '"/>
+					<xsl:value-of select="'to''rt yuz '"/>
 				</xsl:when>
 				<xsl:when test="$remainder=5">
-					<xsl:value-of select="'беш жүз '"/>
+					<xsl:value-of select="'besh yuz '"/>
 				</xsl:when>
 				<xsl:when test="$remainder=6">
-					<xsl:value-of select="'алты жүз '"/>
+					<xsl:value-of select="'olti yuz '"/>
 				</xsl:when>
 				<xsl:when test="$remainder=7">
-					<xsl:value-of select="'жети жүз '"/>
+					<xsl:value-of select="'yetti yuz '"/>
 				</xsl:when>
 				<xsl:when test="$remainder=8">
-					<xsl:value-of select="'сегиз жүз '"/>
+					<xsl:value-of select="'sakkiz yuz '"/>
 				</xsl:when>
 				<xsl:when test="$remainder=9">
-					<xsl:value-of select="'тогуз жүз '"/>
+					<xsl:value-of select="'to''qqiz yuz '"/>
 				</xsl:when>
 			</xsl:choose>
 		</xsl:variable>
@@ -266,39 +266,39 @@
 		<xsl:variable name="ret2">
 			<xsl:choose>
 				<xsl:when test="$remainder2=1">
-					<xsl:value-of select="'он '"/>
+					<xsl:value-of select="'o''n '"/>
 					<!--десять-->
 				</xsl:when>
 				<xsl:when test="$remainder2=2">
-					<xsl:value-of select="'жыйырма '"/>
+					<xsl:value-of select="'yigirma '"/>
 					<!--двадцать-->
 				</xsl:when>
 				<xsl:when test="$remainder2=3">
-					<xsl:value-of select="'отуз '"/>
+					<xsl:value-of select="'o''ttiz '"/>
 					<!--тридцать-->
 				</xsl:when>
 				<xsl:when test="$remainder2=4">
-					<xsl:value-of select="'кырк '"/>
+					<xsl:value-of select="'qirq '"/>
 					<!--сорок-->
 				</xsl:when>
 				<xsl:when test="$remainder2=5">
-					<xsl:value-of select="'элүү '"/>
+					<xsl:value-of select="'ellik '"/>
 					<!--пятьдесят-->
 				</xsl:when>
 				<xsl:when test="$remainder2=6">
-					<xsl:value-of select="'алтымыш '"/>
+					<xsl:value-of select="'oltmish '"/>
 					<!--шестьдесят-->
 				</xsl:when>
 				<xsl:when test="$remainder2=7">
-					<xsl:value-of select="'жетимиш '"/>
+					<xsl:value-of select="'yetmish '"/>
 					<!--семьдесят-->
 				</xsl:when>
 				<xsl:when test="$remainder2=8">
-					<xsl:value-of select="'сексен '"/>
+					<xsl:value-of select="'sakson '"/>
 					<!--восемьдесят-->
 				</xsl:when>
 				<xsl:when test="$remainder2=9">
-					<xsl:value-of select="'токсон '"/>
+					<xsl:value-of select="'to''qson '"/>
 					<!--девяносто-->
 				</xsl:when>
 			</xsl:choose>
@@ -306,31 +306,31 @@
 		<xsl:variable name="ret3">
 			<xsl:choose>
 				<xsl:when test="$remainder3=1">
-					<xsl:value-of select="'бир '"/>
+					<xsl:value-of select="'bir '"/>
 				</xsl:when>
 				<xsl:when test="$remainder3=2">
-					<xsl:value-of select="'эки '"/>
+					<xsl:value-of select="'ikki '"/>
 				</xsl:when>
 				<xsl:when test="$remainder3=3">
-					<xsl:value-of select="'үч '"/>
+					<xsl:value-of select="'uch '"/>
 				</xsl:when>
 				<xsl:when test="$remainder3=4">
-					<xsl:value-of select="'төрт '"/>
+					<xsl:value-of select="'to''rt '"/>
 				</xsl:when>
 				<xsl:when test="$remainder3=5">
-					<xsl:value-of select="'беш '"/>
+					<xsl:value-of select="'besh '"/>
 				</xsl:when>
 				<xsl:when test="$remainder3=6">
-					<xsl:value-of select="'алты '"/>
+					<xsl:value-of select="'olti '"/>
 				</xsl:when>
 				<xsl:when test="$remainder3=7">
-					<xsl:value-of select="'жети '"/>
+					<xsl:value-of select="'yetti '"/>
 				</xsl:when>
 				<xsl:when test="$remainder3=8">
-					<xsl:value-of select="'сегиз '"/>
+					<xsl:value-of select="'sakkiz '"/>
 				</xsl:when>
 				<xsl:when test="$remainder3=9">
-					<xsl:value-of select="'тогуз '"/>
+					<xsl:value-of select="'to''qqiz '"/>
 				</xsl:when>
 			</xsl:choose>
 		</xsl:variable>
