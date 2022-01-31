@@ -18,13 +18,13 @@
 					<xsl:with-param name="value"
 					                select="floor(number($value2))"/>
 					<xsl:with-param name="sex"
-					                select="m"/>
+					                select="'m'"/>
 					<xsl:with-param name="power"
 					                select="0"/>
 				</xsl:call-template>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:value-of select="'nol '"/>
+				<xsl:value-of select="'ноль '"/>
 			</xsl:otherwise>
 		</xsl:choose>
 		<xsl:variable name="intpart">
@@ -38,7 +38,7 @@
  <xsl:value-of select="'рублей'"/>
  </xsl:when>-->
 		<!--<xsl:when test="$intpart mod 10=1">-->
-		<xsl:value-of select="'so''m '"/>
+		<xsl:value-of select="'сом '"/>
 		<!--</xsl:when>-->
 		<!--<xsl:when test="$intpart mod 10=2 or $intpart mod 10=3 or $intpart mod 10=4">
  <xsl:value-of select="'рубля'"/>
@@ -55,7 +55,7 @@
 					<xsl:with-param name="value"
 					                select="$kop"/>
 					<xsl:with-param name="sex"
-					                select="m"/>
+					                select="'m'"/>
 					<xsl:with-param name="power"
 					                select="0"/>
 				</xsl:call-template>
@@ -71,6 +71,9 @@
 			<xsl:when test="$fractpart mod 10=2 or $fractpart mod 10=3 or $fractpart mod 10=4">
 				<xsl:value-of select="'тыйын '"/>
 			</xsl:when>
+			<!--<xsl:when test="$fractpart = 0">
+				<xsl:value-of select="''"/>
+			</xsl:when>-->
 			<xsl:otherwise>
 				<xsl:value-of select="'тыйын '"/>
 			</xsl:otherwise>

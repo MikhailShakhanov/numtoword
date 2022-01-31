@@ -18,7 +18,7 @@
 					<xsl:with-param name="value"
 					                select="floor(number($value2))"/>
 					<xsl:with-param name="sex"
-					                select="m"/>
+					                select="'m'"/>
 					<xsl:with-param name="power"
 					                select="0"/>
 				</xsl:call-template>
@@ -55,7 +55,7 @@
 					<xsl:with-param name="value"
 					                select="$kop"/>
 					<xsl:with-param name="sex"
-					                select="m"/>
+					                select="'m'"/>
 					<xsl:with-param name="power"
 					                select="0"/>
 				</xsl:call-template>
@@ -71,6 +71,9 @@
 			<xsl:when test="$fractpart mod 10=2 or $fractpart mod 10=3 or $fractpart mod 10=4">
 				<xsl:value-of select="'tiyin '"/>
 			</xsl:when>
+			<!--<xsl:when test="$fractpart = 0">
+				<xsl:value-of select="''"/>
+			</xsl:when>-->
 			<xsl:otherwise>
 				<xsl:value-of select="'tiyin '"/>
 			</xsl:otherwise>
