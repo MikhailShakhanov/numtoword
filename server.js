@@ -13,13 +13,6 @@ const env = saxon.getPlatform();
 
 const sefFileName = 'amountTranslate.sef';
 
-const docRuRub = env.parseXmlFromString(env.readFile("amount_ru_rub.xsl"));
-const docKgSom = env.parseXmlFromString(env.readFile("amount_kg_som.xsl"));
-docRuRub._saxonBaseUri = sefFileName;
-docKgSom._saxonBaseUri = sefFileName;
-const sefRuRub = saxon.compile(docRuRub);
-const sefKgSom = saxon.compile(docKgSom);
-
 const splitResponse = (amountTranslation) => {
     const trimedTranslation = amountTranslation.trim().replace(/\s+/g, ' ');
     return JSON.stringify(trimedTranslation.split(' ')
@@ -41,15 +34,21 @@ server.on('request', (req, res) => {
             }
 
             const queryParams = url.parse(req.url, true).query;
-            console.log(`amount:${queryParams.amount} currency:${queryParams.currency}`);
-            const sef = queryParams.currency === 'rub' ? sefRuRub :
+            console.log(`amount:${queryParams.amount} currency:${queryParams.currency} language:${queryParams.language}`);
+
+            const doc = env.parseXmlFromString(env.readFile(`amount_${queryParams.language}_${queryParams.currency}.xsl`));
+            doc._saxonBaseUri = sefFileName;
+            const sef = saxon.compile(doc);
+
+            /*const sef = queryParams.currency === 'rub' ? sefRuRub :
                 queryParams.currency === 'som' ? sefKgSom :
-                    sefRuRub;
+                    sefRuRub;*/
             const sourceText = `
             <?xml version="1.0" encoding="UTF-8"?>
             <translate>
                 <amount>${queryParams.amount}</amount>
                 <currency>:${queryParams.currency}</currency>
+                <language>:${queryParams.language}</language>
             </translate>`;
             saxon.transform({
                 stylesheetInternal: sef,
