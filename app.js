@@ -1,4 +1,4 @@
-//curl http://localhost:3000/?amount=34657.56"&"currency=rub -UseBasicParsing
+//curl http://localhost:3000/?amount=15234657.56&currency=rub&language=ru -UseBasicParsing
 //npm install forever -g
 //forever start -l forever.log -a -o out.log -e err.log app.js
 //forever stop app.js
@@ -29,12 +29,13 @@ server.on('request', (req, res) => {
             }
 
             const queryParams = url.parse(req.url, true).query;
-            console.log(`amount:${queryParams.amount} currency:${queryParams.currency}`);
+            console.log(`amount:${queryParams.amount} currency:${queryParams.currency} language:${queryParams.language}`);
             const sourceText = `
             <?xml version="1.0" encoding="UTF-8"?>
             <translate>
                 <amount>${queryParams.amount}</amount>
                 <currency>:${queryParams.currency}</currency>
+                <language>:${queryParams.language}</language>
             </translate>`;
             saxon.transform({
                 stylesheetInternal: sef,
