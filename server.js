@@ -40,9 +40,6 @@ server.on('request', (req, res) => {
             doc._saxonBaseUri = sefFileName;
             const sef = saxon.compile(doc);
 
-            /*const sef = queryParams.currency === 'rub' ? sefRuRub :
-                queryParams.currency === 'som' ? sefKgSom :
-                    sefRuRub;*/
             const sourceText = `
             <?xml version="1.0" encoding="UTF-8"?>
             <translate>
