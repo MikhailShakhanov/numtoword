@@ -1,4 +1,5 @@
 //curl http://localhost:3000/?amount=34657.56"&"currency=rub -UseBasicParsing
+//http://localhost:3000/?amount=34657.56&currency=rub&language=ru
 //npm install forever -g
 //forever start -l forever.log -a -o out.log -e err.log app.js
 //forever stop app.js
@@ -14,56 +15,62 @@ const env = saxon.getPlatform();
 const sefFileName = 'amountTranslate.sef';
 
 const splitResponse = (amountTranslation) => {
-    const trimedTranslation = amountTranslation.trim().replace(/\s+/g, ' ');
-    return JSON.stringify(trimedTranslation.split(' ')
-        .map((item, index) => {
-            return { [index]: item + '.wav' }
-        })
-    );
+  const trimedTranslation = amountTranslation.trim().replace(/\s+/g, ' ');
+  return JSON.stringify(trimedTranslation.split(' ')
+    .map((item, index) => {
+      return { [index]: item + '.wav' }
+    })
+  );
 }
 
 server.on('request', (req, res) => {
 
-    switch (req.method) {
-        case 'GET':
+  switch (req.method) {
+    case 'GET':
 
-            if (req.url === '/favicon.ico') {
-                res.writeHead(200, { 'Content-Type': 'image/x-icon' });
-                res.end();
-                return;
-            }
+      if (req.url === '/favicon.ico') {
+        res.writeHead(200, { 'Content-Type': 'image/x-icon' });
+        res.end();
+        return;
+      }
 
-            const queryParams = url.parse(req.url, true).query;
-            console.log(`amount:${queryParams.amount} currency:${queryParams.currency} language:${queryParams.language}`);
+      const queryParams = url.parse(req.url, true).query;
 
-            const doc = env.parseXmlFromString(env.readFile(`amount_${queryParams.language}_${queryParams.currency}.xsl`));
-            doc._saxonBaseUri = sefFileName;
-            const sef = saxon.compile(doc);
+      if (!queryParams.amount || !queryParams.currency || !queryParams.language) {
+        res.end('Num to Word');
+        return;
+      }
 
-            const sourceText = `
+      console.log(`amount:${queryParams.amount} currency:${queryParams.currency} language:${queryParams.language}`);
+
+      const doc = env.parseXmlFromString(env.readFile(`amount_${queryParams.language}_${queryParams.currency}.xsl`));
+      doc._saxonBaseUri = sefFileName;
+      const sef = saxon.compile(doc);
+
+      const sourceText = `
             <?xml version="1.0" encoding="UTF-8"?>
             <translate>
                 <amount>${queryParams.amount}</amount>
                 <currency>:${queryParams.currency}</currency>
                 <language>:${queryParams.language}</language>
             </translate>`;
-            saxon.transform({
-                stylesheetInternal: sef,
-                sourceText: sourceText,
-                destination: "serialized"
-            }, "async")
-                .then(output => {
-                    res.writeHead(200, { "Content-Type": "application/json" });
-                    res.end(splitResponse(output.principalResult));
-                    console.log(output.principalResult)
-                })
+      saxon.transform({
+        stylesheetInternal: sef,
+        sourceText: sourceText,
+        destination: "serialized"
+      }, "async")
+        .then(output => {
+          res.writeHead(200, { "Content-Type": "application/json" });
+          res.end(splitResponse(output.principalResult));
+          console.log(output.principalResult)
+        })
 
-            break;
+      break;
 
-        default:
-            res.statusCode = 501;
-            res.end('Not implemented');
-    }
+    default:
+      res.statusCode = 501;
+      res.end('Not implemented');
+  }
 });
 
 module.exports = server;
