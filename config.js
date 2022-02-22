@@ -1,3 +1,6 @@
 module.exports = {
-  PORT: (process.env.NODE_ENV === 'HEROKU') ? 80 : 2000,
+  PORT: 2000,
+  DEBUG: true,
+  LANGUAGE: ['ru', 'kg', 'uz'],
+  CURRENCY: ['som'],
 };

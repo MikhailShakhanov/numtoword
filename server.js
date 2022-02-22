@@ -7,6 +7,10 @@ const saxon = require('saxon-js');
 const url = require('url');
 const http = require('http');
 const path = require('path');
+const config = require('./config');
+const DEBUG = config.DEBUG;
+const LANGUAGE = config.LANGUAGE;
+const CURRENCY = config.CURRENCY;
 
 const server = new http.Server();
 
@@ -35,13 +39,21 @@ server.on('request', (req, res) => {
       }
 
       const queryParams = url.parse(req.url, true).query;
+      const pathname = url.parse(req.url, true).pathname;
 
-      if (!queryParams.amount || !queryParams.currency || !queryParams.language) {
-        res.end('Num to Word');
+      if (!queryParams.amount || !queryParams.currency || !queryParams.language || !pathname
+        || !LANGUAGE.includes(queryParams.language)
+        || !CURRENCY.includes(queryParams.currency)
+        || !queryParams.amount.match(/^\d{1,9}([\.,]\d{0,2}){0,1}$/)
+        || pathname !== '/GenesysPlayBalance') {
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: 'Not Valid Params' }));
         return;
       }
 
-      console.log(`amount:${queryParams.amount} currency:${queryParams.currency} language:${queryParams.language}`);
+      if (DEBUG) {
+        console.log(`amount:${queryParams.amount} currency:${queryParams.currency} language:${queryParams.language}`);
+      }
 
       const doc = env.parseXmlFromString(env.readFile(`amount_${queryParams.language}_${queryParams.currency}.xsl`));
       doc._saxonBaseUri = sefFileName;
@@ -62,7 +74,9 @@ server.on('request', (req, res) => {
         .then(output => {
           res.writeHead(200, { "Content-Type": "application/json" });
           res.end(splitResponse(output.principalResult));
-          console.log(output.principalResult)
+          if (DEBUG) {
+            console.log(output.principalResult);
+          }
         })
 
       break;
