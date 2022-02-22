@@ -6,7 +6,6 @@
 const saxon = require('saxon-js');
 const url = require('url');
 const http = require('http');
-const path = require('path');
 const config = require('./config');
 const DEBUG = config.DEBUG;
 const LANGUAGE = config.LANGUAGE;
