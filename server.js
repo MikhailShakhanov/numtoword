@@ -1,5 +1,5 @@
-//curl http://localhost:2000/?amount=34657.56"&"currency=rub -UseBasicParsing
-//http://localhost:2000/?amount=34657.56&currency=rub&language=ru
+//curl http://localhost:2000/GenesysPlayBalance?amount=34657.56"&"currency=rub -UseBasicParsing
+//http://localhost:2000/GenesysPlayBalance?amount=34657.56&currency=rub&language=ru
 //npm install forever -g
 //forever start -l forever.log -a -o out.log -e err.log index.js
 //forever stop index.js
