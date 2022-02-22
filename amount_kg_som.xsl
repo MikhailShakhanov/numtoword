@@ -166,7 +166,7 @@
 					<xsl:otherwise>
 						<xsl:choose>
 							<xsl:when test="$power=1">
-								<xsl:value-of select="concat('жүз',$ret)"/>
+								<xsl:value-of select="concat('миң',$ret)"/>
 								<!--тысяч-->
 							</xsl:when>
 							<xsl:when test="$power=2">
