@@ -1,0 +1,13 @@
+{
+//forever start c:/Work/Materials/NodeJS/numtoword/forever/deployment.json
+//forever stop GenesysPlayBalance
+    "uid": "GenesysPlayBalance",
+    "append": true,
+    //"watch": true,
+    "script": "index.js",
+	"workingDir": "c:/Work/Materials/NodeJS/numtoword",
+    "sourceDir": "c:/Work/Materials/NodeJS/numtoword",
+    "logFile": "c:/Work/Materials/NodeJS/numtoword/logs/forever.log",
+    "outFile": "c:/Work/Materials/NodeJS/numtoword/logs/out.log",
+    "errFile": "c:/Work/Materials/NodeJS/numtoword/logs/error.log"
+}

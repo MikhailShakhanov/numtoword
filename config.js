@@ -1,6 +1,6 @@
 module.exports = {
   PORT: 2000,
-  DEBUG: false,
+  DEBUG: true,
   LANGUAGE: ['ru', 'kg', 'uz'],
   CURRENCY: ['som'],
 };
