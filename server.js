@@ -18,72 +18,71 @@ const env = saxon.getPlatform();
 
 const sefFileName = 'amountTranslate.sef';
 
-const splitResponse = (amountTranslation, language) => {
-  const trimedTranslation = amountTranslation.trim().replace(/\s+/g, ' ').toLowerCase();
-  return JSON.stringify(trimedTranslation.split(' ')/*
-    .map((item, index) => {
-      return { [index]: item + '.wav' }
-    })*/
-  );
-}
-
 server.on('request', async (req, res) => {
 
-  switch (req.method) {
-    case 'GET':
+  try {
 
-      if (req.url === '/favicon.ico') {
-        res.writeHead(200, { 'Content-Type': 'image/x-icon' });
-        res.end();
-        return;
-      }
+    switch (req.method) {
+      case 'GET':
 
-      const queryParams = url.parse(req.url, true).query;
-      const pathname = url.parse(req.url, true).pathname;
+        if (req.url === '/favicon.ico') {
+          res.writeHead(200, { 'Content-Type': 'image/x-icon' });
+          res.end();
+          return;
+        }
 
-      if (!queryParams.amount || !queryParams.currency || !queryParams.language || !pathname
-        || !LANGUAGE.includes(queryParams.language)
-        || !CURRENCY.includes(queryParams.currency)
-        || !queryParams.amount.match(/^\d{1,9}([\.,]\d{0,2}){0,1}$/)
-        || pathname !== '/GenesysPlayBalance') {
-        res.writeHead(200, { "Content-Type": "application/json" });
-        res.end(JSON.stringify({ error: 'Not Valid Params' }));
-        return;
-      }
+        const queryParams = url.parse(req.url, true).query;
+        const pathname = url.parse(req.url, true).pathname;
 
-      if (DEBUG) {
-        console.log(`amount:${queryParams.amount} currency:${queryParams.currency} language:${queryParams.language}`);
-      }
+        if (!queryParams.amount || !queryParams.currency || !queryParams.language || !pathname
+          || !LANGUAGE.includes(queryParams.language)
+          || !CURRENCY.includes(queryParams.currency)
+          || !queryParams.amount.match(/^\d{1,9}([\.,]\d{0,2}){0,1}$/)
+          || pathname !== '/GenesysPlayBalance') {
+          res.writeHead(200, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: 'Not Valid Params' }));
+          return;
+        }
 
-      const doc = env.parseXmlFromString(await env.readFile(`amount_${queryParams.language}_${queryParams.currency}.xsl`));
-      doc._saxonBaseUri = sefFileName;
-      const sef = saxon.compile(doc);
+        if (DEBUG) {
+          console.log(`amount:${queryParams.amount} currency:${queryParams.currency} language:${queryParams.language}`);
+        }
 
-      const sourceText = `
+        const doc = env.parseXmlFromString(await env.readFile(`./xsl/amount_${queryParams.language}_${queryParams.currency}.xsl`));
+        doc._saxonBaseUri = sefFileName;
+        const sef = saxon.compile(doc);
+
+        const sourceText = `
             <?xml version="1.0" encoding="UTF-8"?>
             <translate>
                 <amount>${queryParams.amount}</amount>
                 <currency>:${queryParams.currency}</currency>
                 <language>:${queryParams.language}</language>
             </translate>`;
-      saxon.transform({
-        stylesheetInternal: sef,
-        sourceText: sourceText,
-        destination: "serialized"
-      }, "async")
-        .then(output => {
-          res.writeHead(200, { "Content-Type": "application/json" });
-          res.end(/*splitResponse*/mapResponse(output.principalResult, queryParams.language));
-          if (DEBUG) {
-            console.log(output.principalResult);
-          }
-        })
+        saxon.transform({
+          stylesheetInternal: sef,
+          sourceText: sourceText,
+          destination: "serialized"
+        }, "async")
+          .then(output => {
+            res.writeHead(200, { "Content-Type": "application/json" });
+            res.end(mapResponse(output.principalResult, queryParams.language));
+            if (DEBUG) {
+              console.log(output.principalResult);
+            }
+          })
 
-      break;
+        break;
 
-    default:
-      res.statusCode = 501;
-      res.end('Not implemented');
+      default:
+        res.statusCode = 501;
+        res.end('Not implemented');
+    }
+  } catch (e) {
+    console.log(e);
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ error: e.message }));
+    return;
   }
 });
 

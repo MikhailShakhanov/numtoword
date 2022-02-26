@@ -1,16 +1,9 @@
+const prompts = require('./prompts');
 module.exports.mapResponse = (amountTranslation, language) => {
-  const trimedTranslation = amountTranslation.trim().replace(/\s+/g, ' ').toLowerCase();
-  return JSON.stringify(trimedTranslation.split(' ')/*
-      .map((item, index) => {
-        return { [index]: item + '.wav' }
-      })*/
-  );
+  try {
+    const trimedTranslation = amountTranslation.trim().replace(/\s+/g, ' ').toLowerCase().split(' ');
+    return JSON.stringify(trimedTranslation.map((item) => prompts[language][item]));
+  } catch (e) {
+    return JSON.stringify({ error: e.message })
+  }
 };
-  /*
-return {
-  id: order.id,
-  user: order.user,
-  product: mapProduct(order.product),
-  phone: order.phone,
-  address: order.address,
-};*/
