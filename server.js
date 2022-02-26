@@ -1,5 +1,5 @@
 //curl http://localhost:2000/GenesysPlayBalance?amount=34657.56"&"currency=rub -UseBasicParsing
-//http://localhost:2000/GenesysPlayBalance?amount=34657.56&currency=rub&language=ru
+//http://localhost:2000/GenesysPlayBalance?amount=34657.56&currency=som&language=ru
 //npm install forever -g
 //forever start -l forever.log -a -o out.log -e err.log index.js
 //forever stop index.js
@@ -7,6 +7,7 @@ const saxon = require('saxon-js');
 const url = require('url');
 const http = require('http');
 const config = require('./config');
+const { mapResponse } = require('./utils/utils');
 const DEBUG = config.DEBUG;
 const LANGUAGE = config.LANGUAGE;
 const CURRENCY = config.CURRENCY;
@@ -17,16 +18,16 @@ const env = saxon.getPlatform();
 
 const sefFileName = 'amountTranslate.sef';
 
-const splitResponse = (amountTranslation) => {
-  const trimedTranslation = amountTranslation.trim().replace(/\s+/g, ' ');
-  return JSON.stringify(trimedTranslation.split(' ')
+const splitResponse = (amountTranslation, language) => {
+  const trimedTranslation = amountTranslation.trim().replace(/\s+/g, ' ').toLowerCase();
+  return JSON.stringify(trimedTranslation.split(' ')/*
     .map((item, index) => {
       return { [index]: item + '.wav' }
-    })
+    })*/
   );
 }
 
-server.on('request', (req, res) => {
+server.on('request', async (req, res) => {
 
   switch (req.method) {
     case 'GET':
@@ -54,7 +55,7 @@ server.on('request', (req, res) => {
         console.log(`amount:${queryParams.amount} currency:${queryParams.currency} language:${queryParams.language}`);
       }
 
-      const doc = env.parseXmlFromString(env.readFile(`amount_${queryParams.language}_${queryParams.currency}.xsl`));
+      const doc = env.parseXmlFromString(await env.readFile(`amount_${queryParams.language}_${queryParams.currency}.xsl`));
       doc._saxonBaseUri = sefFileName;
       const sef = saxon.compile(doc);
 
@@ -72,7 +73,7 @@ server.on('request', (req, res) => {
       }, "async")
         .then(output => {
           res.writeHead(200, { "Content-Type": "application/json" });
-          res.end(splitResponse(output.principalResult));
+          res.end(/*splitResponse*/mapResponse(output.principalResult, queryParams.language));
           if (DEBUG) {
             console.log(output.principalResult);
           }
