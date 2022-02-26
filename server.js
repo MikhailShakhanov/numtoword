@@ -20,6 +20,11 @@ const sefFileName = 'amountTranslate.sef';
 
 server.on('request', async (req, res) => {
 
+  const errorHandler = (error) => {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ error: error.message }));
+  }
+
   try {
 
     switch (req.method) {
@@ -71,6 +76,7 @@ server.on('request', async (req, res) => {
               console.log(output.principalResult);
             }
           })
+          .catch(errorHandler);
 
         break;
 
@@ -79,10 +85,7 @@ server.on('request', async (req, res) => {
         res.end('Not implemented');
     }
   } catch (e) {
-    console.log(e);
-    res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify({ error: e.message }));
-    return;
+    errorHandler(e);
   }
 });
 

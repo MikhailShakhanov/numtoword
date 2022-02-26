@@ -1,0 +1,8 @@
+Server is listening on http://localhost:2000
+Server is listening on http://localhost:2000
+Server is listening on http://localhost:2000
+Server is listening on http://localhost:2000
+amount:34657.56 currency:som language:ru
+ Тридцать четыре тысячи шестьсот пятьдесят семь сомов   пятьдесят шесть тыйынов 
+amount:34657.56 currency:som language:ru
+ Тридцать четыре тысячи шестьсот пятьдесят семь сомов   пятьдесят шесть тыйынов 

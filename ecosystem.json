@@ -1,0 +1,10 @@
+{
+  "apps": {
+    "name": "GenesysPlayBalance",
+    "script": "index.js",
+    "exec_mode": "cluster",
+    "instances": 4,
+    "out_file": "logs/logs.txt",
+    "combine_logs": true
+  }
+}
