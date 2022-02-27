@@ -1,0 +1,111 @@
+1. все действия в терминале выполять из-под администратора!
+1. установить node-v16.14.0-x64.msi
+2. скопировать numtoword в C:\Users\mi.shakhanov\install\numtoword
+4. в ecosystem.json и config.js прописать порт PORT вместо 2000 при необходимости, DEBUG=false, instances=<число потоков>
+3. запусть из папки C:\Users\mi.shakhanov\install\numtoword:
+node index.js
+4. остановить Ctrl+C и ещё раз Ctrl+C
+-4. убрал forever-monitor из package.json (dependencies)
+-6. удалал devDependencies
+-5. добавил bundledDependencies из dependencies
+-6. npm pack
+-7. установить forever
+-npm i -g forever-4.0.3.tgz
+-5. проверить, что появился forever.cmd в C:\Users\User\AppData\Roaming\npm
+-6. проверить, что в PATH у текущего User есть C:\Users\User\AppData\Roaming\npm (User variables for User)
+-5. распаковать node_modules в c:\Users\User\AppData\Roaming\npm\node_modules\forever\node_modules
+-6. проверить из cmd запустить forever командой ищ папки C:\Users\User\Desktop\install\numtoword: 
+-forever start -l forever.log -a -o out.log -e err.log index.js
+-8. проверить, что создались логи forever в c:\Users\User\.forever\
+-8. проверить, что создались логи out и err в C:\Users\User\Desktop\install\numtoword
+--9. запустить укзав PORT - http://localhost:{PORT}/?amount=15234657.56&currency=rub&language=ru
+--9. остановить forever из папки C:\Users\User\Desktop\install\numtoword: 
+--forever stop index.js
+2. скопировать и разархивировать nssm-2.24-101-g897c7ad.zip
+2. cd C:\Users\mi.shakhanov\install\nssm-2.24-101-g897c7ad\win64
+-v1
+1. nssm install GenesysPlayBalance "C:\Program Files\nodejs\node.exe"
+1. nssm set GenesysPlayBalance AppDirectory "C:\Users\mi.shakhanov\install\numtoword"
+1. nssm set GenesysPlayBalance AppParameters index.js
+1. nssm remove GenesysPlayBalance
+-v2
+1. nssm install GenesysPlayBalanceAuto "C:\Users\mi.shakhanov\AppData\Roaming\npm\forever.cmd"
+1. nssm set GenesysPlayBalanceAuto AppParameters "C:\Users\mi.shakhanov\install\numtoword\forever\deployment.json"
+1. nssm remove GenesysPlayBalanceAuto
+-v3
+1. npm install -g pm2
+-v4
+1. скопировать c:\Users\User\Desktop\install\pm2-installer-main\
+2. из c:\Users\User\Desktop\install\pm2-installer-main\
+npm run configure
+1. из c:\Users\User\Desktop\install\pm2-installer-main\
+npm run configure-policy
+1. npm run setup
+1. node
+> module.paths
+1. выбрал c:\\node_modules' и скопировал туда C:\ProgramData\npm\npm\node_modules\node-windows
+1. перешел в c:\Users\User\Desktop\install\numtoword\
+1. pm2 start ecosystem.json
+1. pm2 save
+1. скопировал @jessety в C:\ProgramData\npm\npm\node_modules\
+-v5
+1. предварительно сделать из pm2-5.2.0 (локально) и запаковать
+npm i
+1. скопировать pm2-5.2.0 и распаковать
+1. Создать папки "c:\ProgramData\npm\npm" и "c:\ProgramData\npm\npm-cache"
+1. npm config set prefix "c:\ProgramData\npm\npm"
+1. npm config set cache "c:\ProgramData\npm\npm-cache"
+1. перезайти в терминал
+1. cd C:\Users\mi.shakhanov\install\pm2-5.2.0
+1. выполнить npm i -g из раскакованной папки pm2-5.2.0
+1. сделать переменную среды PM2_HOME = C:\Users\mi.shakhanov\install\numtoword\.pm2
+1. добавить в переменную среды PATH: C:\ProgramData\npm\npm
+1. перезайти в ОС (sign out)
+1. перейти в cd C:\Users\mi.shakhanov\install\numtoword\
+1. выполнить pm2 start ecosystem.json
+1. pm2 save
+1. pm2 kill
+
+-1. переоткрыть терминал
+-1. cd C:\Users\User\Desktop\install\numtoword
+-1. pm2 start ecosystem.json
+-1. pm2 save
+-1. pm2 kill
+-1. pm2 resurrect
+-1. pm2 kill
+
+1. cd C:\Users\mi.shakhanov\install\nssm-2.24-101-g897c7ad\win64
+1. nssm.exe install GenesysPlayBalance
+1. Path: c:\ProgramData\npm\npm\pm2.cmd
+1. SetupDirectory: c:\ProgramData\npm\npm\
+1. Argument: resurrect --no-daemon
+1. Startup Type: Automatic (Delayed Start)
+1. DisplayName: GenesysPlayBalance
+1. Desctiption: GenesysPlayBalance
+1. Local System Account
+1. Restart: No Action
+1. Стартовать службу GenesysPlayBalance
+
+--
+1. Path: c:\Users\User\Desktop\install\numtoword\pm2_startup.bat
+1. Folder: c:\Users\User\Desktop\install\numtoword\
+1. Startup Type: Automatic delayed
+1. Display: GenesysPlayBalance
+1. Local Account
+1. Restart: No Action
+
+
+
+--
+pm2 kill
+pm2 start ecosystem.json
+pm2 stop all
+pm2 resurrect
+--
+npm run bundle из c:\Users\User\Desktop\install\pm2-installer-main\
+
+nssm remove <servicename>
+
+npm config set prefix "c:\ProgramData\npm\npm"
+was
+C:\Users\User\AppData\Roaming\npm
