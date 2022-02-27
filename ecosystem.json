@@ -4,7 +4,20 @@
     "script": "index.js",
     "exec_mode": "cluster",
     "instances": 4,
-    "out_file": "logs/logs.txt",
-    "combine_logs": true
+    "out_file": "logs/log.txt",
+    "error_file": "logs/err.txt",
+    "combine_logs": true,
+    "env": {
+      "PORT": 2000,
+      "DEBUG": true,
+      "LANGUAGE": [
+        "ru",
+        "kg",
+        "uz"
+      ],
+      "CURRENCY": [
+        "som"
+      ]
+    }
   }
 }

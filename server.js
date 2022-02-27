@@ -8,9 +8,9 @@ const url = require('url');
 const http = require('http');
 const config = require('./config');
 const { mapResponse } = require('./utils/utils');
-const DEBUG = config.DEBUG;
-const LANGUAGE = config.LANGUAGE;
-const CURRENCY = config.CURRENCY;
+const DEBUG = process.env.DEBUG || config.DEBUG;
+const LANGUAGE = process.env.LANGUAGE || config.LANGUAGE;
+const CURRENCY = process.env.CURRENCY || config.CURRENCY;
 
 const server = new http.Server();
 
