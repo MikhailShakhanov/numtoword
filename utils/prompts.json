@@ -1,5 +1,6 @@
 {
   "ru": {
+    "минус": "<Prompt_Balance:Minus>",
     "сом": "<Prompt_Balance:Som>",
     "сома": "<Prompt_Balance:Som>",
     "сомов": "<Prompt_Balance:Som>",
@@ -59,6 +60,7 @@
     "девятьсот": "<Prompt_Balance:Dig900>"
   },
   "kg": {
+    "минус": "<Prompt_Balance:Minus>",
     "сом": "<Prompt_Balance:Som>",
     "тыйын": "<Prompt_Balance:Tyiyn>",
     "ноль": "<Prompt_Balance:Dig000>",
@@ -87,6 +89,7 @@
     "триллион": "<Prompt_Balance:Trillion>"
   },
   "uz": {
+    "minus": "<Prompt_Balance:Minus>",
     "so'm": "<Prompt_Balance:Som>",
     "tiyin": "<Prompt_Balance:Tyiyn>",
     "nol": "<Prompt_Balance:Dig000>",

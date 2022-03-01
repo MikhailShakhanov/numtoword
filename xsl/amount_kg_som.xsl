@@ -9,9 +9,23 @@
 		           select="'m'"/>
 		<xsl:variable name="power"
 		              select="0"/>
-		<xsl:variable name="value2">
-			<xsl:value-of select="translate($value,',','.')"/>
+
+    <xsl:variable name="minus">
+			<xsl:choose>
+				<xsl:when test="0 > number(translate($value,',','.'))"> 
+						<xsl:value-of select="'минус '"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="''"/>
+				</xsl:otherwise>
+			</xsl:choose>
 		</xsl:variable>
+    <xsl:value-of select="$minus"/>
+
+		<xsl:variable name="value2">
+			<xsl:value-of select="abs(number(translate($value,',','.')))"/>
+		</xsl:variable>
+    
 		<xsl:choose>
 			<xsl:when test="floor(number($value2)) > 0">
 				<xsl:call-template name="float2speech">

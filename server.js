@@ -42,7 +42,7 @@ server.on('request', async (req, res) => {
         if (!queryParams.amount || !queryParams.currency || !queryParams.language || !pathname
           || !LANGUAGE.includes(queryParams.language)
           || !CURRENCY.includes(queryParams.currency)
-          || !queryParams.amount.match(/^\d{1,9}([\.,]\d{0,2}){0,1}$/)
+          || !queryParams.amount.match(/^-?\d{1,9}([\.,]\d{0,2}){0,1}$/)
           || pathname !== '/GenesysPlayBalance') {
           res.writeHead(200, { "Content-Type": "application/json" });
           res.end(JSON.stringify({ error: 'Not Valid Params' }));

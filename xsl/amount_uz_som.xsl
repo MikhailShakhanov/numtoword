@@ -9,9 +9,23 @@
 		           select="'m'"/>
 		<xsl:variable name="power"
 		              select="0"/>
-		<xsl:variable name="value2">
-			<xsl:value-of select="translate($value,',','.')"/>
+
+		<xsl:variable name="minus">
+			<xsl:choose>
+				<xsl:when test="0 > number(translate($value,',','.'))"> 
+						<xsl:value-of select="'minus '"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="''"/>
+				</xsl:otherwise>
+			</xsl:choose>
 		</xsl:variable>
+    <xsl:value-of select="$minus"/>
+
+		<xsl:variable name="value2">
+			<xsl:value-of select="abs(number(translate($value,',','.')))"/>
+		</xsl:variable>
+
 		<xsl:choose>
 			<xsl:when test="floor(number($value2)) > 0">
 				<xsl:call-template name="float2speech">
@@ -33,20 +47,7 @@
 		<xsl:variable name="fractpart">
 			<xsl:value-of select="round((number($value2)-floor(number($value2)))*100)"/>
 		</xsl:variable>
-		<!--<xsl:choose> -->
-		<!--<xsl:when test="$intpart mod 10=0 or $intpart mod 10=5 or $intpart mod 10=6 or $intpart mod 10=7 or $intpart mod 10=8 or $intpart mod 10=8">
- <xsl:value-of select="'рублей'"/>
- </xsl:when>-->
-		<!--<xsl:when test="$intpart mod 10=1">-->
 		<xsl:value-of select="'so''m '"/>
-		<!--</xsl:when>-->
-		<!--<xsl:when test="$intpart mod 10=2 or $intpart mod 10=3 or $intpart mod 10=4">
- <xsl:value-of select="'рубля'"/>
- </xsl:when>
- <xsl:otherwise>
- <xsl:value-of select="'рублей'"/>
- </xsl:otherwise>-->
-		<!--</xsl:choose>-->
 		<xsl:choose>
 			<xsl:when test="floor(number($value2))!=$value2">
 				<xsl:variable name="kop"
@@ -71,9 +72,6 @@
 			<xsl:when test="$fractpart mod 10=2 or $fractpart mod 10=3 or $fractpart mod 10=4">
 				<xsl:value-of select="'tiyin '"/>
 			</xsl:when>
-			<!--<xsl:when test="$fractpart = 0">
-				<xsl:value-of select="''"/>
-			</xsl:when>-->
 			<xsl:otherwise>
 				<xsl:value-of select="'tiyin '"/>
 			</xsl:otherwise>
