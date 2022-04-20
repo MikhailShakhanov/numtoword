@@ -5,14 +5,22 @@
 //forever stop index.js
 const saxon = require('saxon-js');
 const url = require('url');
-const http = require('http');
+const https = require('https');
+const fs = require('fs');
 const config = require('./config');
 const { mapResponse } = require('./utils/utils');
 const DEBUG = process.env.DEBUG || config.DEBUG;
 const LANGUAGE = process.env.LANGUAGE || config.LANGUAGE;
 const CURRENCY = process.env.CURRENCY || config.CURRENCY;
 
-const server = new http.Server();
+const httpsOptions = {
+  key: fs.readFileSync('./secret/key.pem'),
+  cert: fs.readFileSync('./secret/cert.pem'),
+  requestCert: false,
+  rejectUnauthorized: false,
+}
+
+const server = new https.Server(httpsOptions);
 
 const env = saxon.getPlatform();
 
